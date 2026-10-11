@@ -1,0 +1,92 @@
+## 1.3 Data reorganization
+
+### Reading data
+
+Each row of the file is one reaching movement.
+
+```{r load-data}
+results <- read.table("data/Results.txt", header = TRUE,
+                      sep = " ", stringsAsFactors = TRUE)
+names(results)
+```
+
+### Number of measures per GROUP and ID
+
+```{r count-group-id}
+results %>% count(GROUP, ID)
+```
+
+Data are missing for ID3 in the pp group, so ID3 is removed.
+
+### Number of measures per REP
+
+```{r count-rep}
+results %>% filter(ID != "ID3") %>% count(REP)
+results %>% filter(ID != "ID3") %>% count(GROUP, REP)
+```
+
+R3 is missing in the pp and ap groups, so R3 is removed.
+
+### Clean data
+
+```{r clean}
+results_clean <- results %>%
+  filter(ID != "ID3", REP != "R3") %>%
+  droplevels()
+
+# Must be balanced
+results_clean %>% count(GROUP, ID, REP)
+```
+
+### Number of participants per group
+
+```{r count-subjects}
+results_clean %>%
+  distinct(GROUP, SUBJ) %>%
+  count(GROUP)
+```
+
+### One value per participant and ID
+
+The ANOVA needs a single value per participant and per condition, so we average the movements.
+
+```{r average}
+data_anova <- results_clean %>%
+  group_by(GROUP, SUBJ, ID) %>%
+  summarise(MT = mean(MovementTime), .groups = "drop") %>%
+  mutate(SUBJ = factor(SUBJ))
+```
+
+### Visualization of the interaction
+
+```{r interaction-plot}
+# Mean ± 0.5 SD, as in the assignment (mean_sdl with mult = 0.5)
+mean_sd_half <- function(y) {
+  data.frame(y = mean(y), ymin = mean(y) - sd(y) / 2, ymax = mean(y) + sd(y) / 2)
+}
+
+ggplot(results_clean, aes(x = ID, y = MovementTime, color = GROUP)) +
+  stat_summary(fun = mean, geom = "line", aes(group = GROUP)) +
+  stat_summary(fun.data = mean_sd_half, geom = "errorbar", width = 0.05) +
+  stat_summary(fun = mean, geom = "point", shape = 21, fill = "white", size = 3) +
+  labs(title = "Interaction between GROUP and ID on movement time",
+       x = "ID", y = "Mean movement time (s)") +
+  theme_minimal()
+```
+
+The lines are not parallel: movement time increases much more with ID in the pp group than in the two other groups.
+
+### ANOVA
+
+```{r anova}
+anova_res <- ezANOVA(data = data_anova,
+                     dv = MT,
+                     wid = SUBJ,
+                     within = ID,
+                     between = GROUP,
+                     detailed = FALSE)
+anova_res$ANOVA
+```
+
+The effect of difficulty depends on the group: the GROUP × ID interaction is significant, F(2, 48) = 11.58, p < .001, generalized eta squared = 0.06. 
+The main effects of GROUP, F(2, 48) = 37.24, p < .001, and of ID, F(1, 48) = 30.78, p < .001, are also significant.

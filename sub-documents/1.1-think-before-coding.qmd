@@ -1,0 +1,7 @@
+## 1.1 Think before coding
+
+Scientific question: is the effect of difficulty (ID) on movement time (MT) the same in all groups?
+
+1. Visualization: mean MT as a function of ID, one line per GROUP (interaction plot).
+2. Test: GROUP × ID interaction in a mixed ANOVA (GROUP between subjects, ID within subjects).
+3. Result sentence: see section 1.3.
