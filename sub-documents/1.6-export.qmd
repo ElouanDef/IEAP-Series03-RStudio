@@ -1,5 +1,4 @@
 ```{r}
-# Create a figures folder in the repository if it doesn't exist
 dir.create("figures", showWarnings = FALSE)
 
 # Save the regression plot as a PDF
