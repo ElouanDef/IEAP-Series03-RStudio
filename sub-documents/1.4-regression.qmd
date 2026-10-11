@@ -5,25 +5,25 @@
 library(dplyr)
 
 # 1. Clean the data: remove ID3 and keep ID1 and ID2
-data_clean <- data %>%
+results_clean <- data %>%
   filter(ID %in% c("ID1", "ID2")) %>%
   mutate(
     ID_numeric = case_when(
       ID == "ID1" ~ 3.8,
-      ID == "ID2" ~ 5.5
+      ID == "ID2" ~ 5.43
     )
   ) %>%
   droplevels()
 
 # 2. Verify the ID mapping
 print(
-  data_clean %>%
+  results_clean %>%
     distinct(ID, ID_numeric) %>%
     arrange(ID_numeric)
 )
 
 # 3. Fit one linear regression for each GROUP
-models <- data_clean %>%
+models <- results_clean %>%
   group_by(GROUP) %>%
   group_modify(~ {
     fit <- lm(MovementTime ~ ID_numeric, data = .x)
