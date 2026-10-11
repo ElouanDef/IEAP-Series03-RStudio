@@ -386,3 +386,16 @@ print(p)
 
 
 ```
+
+## save as pdf
+
+```{r}
+ggsave(
+  filename = "MovementTime_Regression.pdf",
+  plot = p,
+  width = 8,
+  height = 6,
+  units = "in",
+  device = "pdf"
+)
+```
