@@ -1,0 +1,9 @@
+## 1.2 Library used
+
+We use `ez` (function `ezANOVA`) for the ANOVA.
+
+```{r load-libraries}
+#| message: false
+library(tidyverse)
+library(ez)
+```
