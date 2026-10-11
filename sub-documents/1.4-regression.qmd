@@ -1,0 +1,59 @@
+
+## run the linear regression by group
+
+```{r}
+library(dplyr)
+
+# 1. Clean the data: remove ID3 and keep ID1 and ID2
+results_clean <- data %>%
+  filter(ID %in% c("ID1", "ID2")) %>%
+  mutate(
+    ID_numeric = case_when(
+      ID == "ID1" ~ 3.8,
+      ID == "ID2" ~ 5.43
+    )
+  ) %>%
+  droplevels()
+
+# 2. Verify the ID mapping
+print(
+  results_clean %>%
+    distinct(ID, ID_numeric) %>%
+    arrange(ID_numeric)
+)
+
+# 3. Fit one linear regression for each GROUP
+models <- results_clean %>%
+  group_by(GROUP) %>%
+  group_modify(~ {
+    fit <- lm(MovementTime ~ ID_numeric, data = .x)
+
+    tibble(
+      intercept = unname(coef(fit)[1]),
+      slope = unname(coef(fit)[2]),
+      equation = sprintf(
+        "MT = %.3f + %.3f * ID",
+        unname(coef(fit)[1]),
+        unname(coef(fit)[2])
+      )
+    )
+  }) %>%
+  ungroup()
+
+# 4. Display the three equations
+print(models)
+
+# 5. Export the equations to the repository
+write.csv(
+  models,
+  file = "Regression_Equations.csv",
+  row.names = FALSE
+)
+
+writeLines(
+  paste(models$GROUP, models$equation, sep = ": "),
+  con = "Regression_Equations.txt"
+)
+```
+
+

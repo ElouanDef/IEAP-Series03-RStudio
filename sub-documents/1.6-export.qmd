@@ -1,0 +1,15 @@
+```{r}
+# Create a figures folder in the repository if it doesn't exist
+dir.create("figures", showWarnings = FALSE)
+
+# Save the regression plot as a PDF
+ggsave(
+  filename = "figures/MovementTime_Regression.pdf",
+  plot = p,
+  width = 8,
+  height = 6,
+  units = "in",
+  device = "pdf"
+)
+```
+
