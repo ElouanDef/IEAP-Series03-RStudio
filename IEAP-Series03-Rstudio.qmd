@@ -23,6 +23,8 @@ We also encountered some technical difficulties, particularly with file paths an
 
 However, we learned that dividing the project into smaller files was an efficient way to organize our work. We also improved our understanding of GitHub, especially how to use branches, commits and Pull Requests to collaborate.
 
+We did not fully respect the rule of one commit per question: questions 1.4 and 1.5 were committed together. Next time, we will make one commit for each question.
+
 Overall, this project taught us the importance of communication, organization and planning when working as a team.
 
 # 1 ANOVA: Analysis of variance
@@ -50,18 +52,18 @@ Mottet, D., van Dokkum, L. E. H., Froger, J., Gouaïch, A., & Laffont, I. (2017)
 
 # Checklist
 
-- [ ] Public repository named `IEAP-Series03-RStudio`, `main` branch up to date
-- [ ] `README.md` clear and complete
-- [ ] `LICENSE` file
-- [ ] Master document `IEAP-Series03-Rstudio.qmd` and its PDF
-- [ ] Authors and date in the header
-- [ ] Clickable link to the public repository
-- [ ] Analysis of the team workflow with Git
-- [ ] Challenges and lessons learned
-- [ ] Complete code and answers to questions 1.1 to 1.7
-- [ ] Data sources with URLs
-- [ ] Scientific references with DOIs
-- [ ] At least one commit per question, with meaningful messages
-- [ ] One branch per task, merged into `main` through pull requests
-- [ ] No TODO left in the document
-- [ ] PDF uploaded on Moodle
+- [x] Public repository named `IEAP-Series03-RStudio`, `main` branch up to date
+- [x] `README.md` clear and complete
+- [x] `LICENSE` file
+- [x] Master document `IEAP-Series03-Rstudio.qmd` and its PDF
+- [x] Authors and date in the header
+- [x] Clickable link to the public repository
+- [x] Analysis of the team workflow with Git
+- [x] Challenges and lessons learned
+- [x] Complete code and answers to questions 1.1 to 1.7
+- [x] Data sources with URLs
+- [x] Scientific references with DOIs
+- [] At least one commit per question, with meaningful messages
+- [x] One branch per task, merged into `main` through pull requests
+- [x] No TODO left in the document
+- [x] PDF uploaded on Moodle
