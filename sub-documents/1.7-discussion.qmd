@@ -1,0 +1,11 @@
+Our results are slightly different from those presented in the scientific article. The regression equations and the ANOVA values are not exactly the same because we used a simpler statistical method and excluded some incomplete experimental conditions (ID3 and REP3).
+
+However, the main conclusions are similar.
+
+In our graph, movement time increases with the Index of Difficulty (ID) in all three groups. However, the increase is much stronger in the patient group (slope = 0.861) than in the age-matched group (slope = 0.176) and the young group (slope = 0.135).
+
+This result is consistent with Figure 3 of the article, where the patient group also shows a much steeper regression slope than the two healthy groups.
+
+Furthermore, our ANOVA shows a significant Group × ID interaction (F(2,48) = 11.58, p < 0.001). This confirms that the effect of task difficulty on movement time differs between groups.
+
+Therefore, although the numerical results are different, our simpler analysis leads to the same main scientific conclusion :  Increasing task difficulty has a much stronger effect on movement time in patients with stroke than in healthy participants.
