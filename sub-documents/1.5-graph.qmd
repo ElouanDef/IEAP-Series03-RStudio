@@ -1,5 +1,5 @@
+## 1.5 Graph for publication
 
-## save a graph in pdf file
 
 ```{r}
 library(dplyr)

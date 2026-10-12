@@ -1,3 +1,5 @@
+## 1.6 Export the graph as a PDF
+
 ```{r}
 dir.create("figures", showWarnings = FALSE)
 

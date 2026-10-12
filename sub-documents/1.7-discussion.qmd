@@ -1,8 +1,10 @@
+## 1.7 Discuss the differences with the article
+
 Our results are slightly different from those presented in the scientific article. The regression equations and the ANOVA values are not exactly the same because we used a simpler statistical method and excluded some incomplete experimental conditions (ID3 and REP3).
 
 However, the main conclusions are similar.
 
-In our graph, movement time increases with the Index of Difficulty (ID) in all three groups. However, the increase is much stronger in the patient group (slope = 0.861) than in the age-matched group (slope = 0.176) and the young group (slope = 0.135).
+In our graph, movement time increases with the Index of Difficulty (ID) in all three groups. However, the increase is much stronger in the patient group (slope = 0.898) than in the age-matched group (slope = 0.165) and the young group (slope = 0.123).
 
 This result is consistent with Figure 3 of the article, where the patient group also shows a much steeper regression slope than the two healthy groups.
 
