@@ -5,15 +5,25 @@ date: today
 format: typst
 ---
 
-GitHub repository: <TODO_REPO_URL>
+GitHub repository: <https://github.com/ElouanDef/IEAP-Series03-RStudio.git>
 
 # Team workflow with Git
 
-TODO
+We worked as a team of three using GitHub to organize and share our work. Each member worked on a separate branch and used commits and Pull Requests to merge their work into the main branch.
+
+For Shunan and Elouan, it was the first time working on a GitHub project organized into several sub-documents, with one file for each section. We found this method very useful because it made the documents shorter, clearer and easier to organize.
+
+At the end, we combined all the sub-documents into one main Quarto file to create the final report.
 
 # Challenges and lessons learned
 
-TODO
+One of our main challenges was coordinating our work. We all had different schedules, which made it difficult to find time to work together. As a result, completing the assignment took longer than expected.
+
+We also encountered some technical difficulties, particularly with file paths and dependencies between R scripts. Some sections needed objects created in previous sections, which sometimes caused errors when running the code separately.
+
+However, we learned that dividing the project into smaller files was an efficient way to organize our work. We also improved our understanding of GitHub, especially how to use branches, commits and Pull Requests to collaborate.
+
+Overall, this project taught us the importance of communication, organization and planning when working as a team.
 
 # 1 ANOVA: Analysis of variance
 {{< include sub-documents/1.1-think-before-coding.qmd >}}
