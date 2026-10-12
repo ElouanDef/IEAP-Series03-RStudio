@@ -4,7 +4,7 @@ Team solution to **IEAP Series 03 — Data wrangling and ANOVA** (M1 IEAP, Unive
 
 We reproduce the main result of Mottet et al. (2017, Fig. 3): movement time as a function of the index of difficulty in patients after a stroke, age-matched controls and young controls. Our report includes data cleaning, a mixed ANOVA, linear regressions by group, a graph and a discussion comparing our results with the scientific article.
 
-The final report is [IEAP-Series-RStudio.pdf].
+The final report is [IEAP-Series03-Rstudio.pdf](IEAP-Series03-Rstudio.pdf).
 
 ## Team
 
@@ -36,8 +36,6 @@ sub-documents/
   1.6-export.qmd                    PDF export of the graph
   1.7-discussion.qmd                Comparison with the article
 
-figures/
-  MovementTime_Regression.pdf       Regression graph, 8 × 6 inches
 ```
 
 We decided to work with a separate Quarto file for each question. All the sub-documents are included in the main file using `{{< include ... >}}`.
@@ -90,7 +88,7 @@ Each row represents one reaching movement. The dataset contains the following co
 - `GROUP`: experimental group
 - `SUBJ`: participant
 - `TRIAL`: trial number
-- `ORI`: movement origin
+- `ORI`: movement orientation
 - `DIR`: movement direction
 - `ID`: index of difficulty
 - `REP`: repetition
