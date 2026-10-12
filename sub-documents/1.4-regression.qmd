@@ -1,11 +1,11 @@
 
-## run the linear regression by group
+## 1.4 Run the linear regression by GROUP
 
 ```{r}
 library(dplyr)
 
 # 1. Clean the data: remove ID3 and keep ID1 and ID2
-results_clean <- data %>%
+data_clean <- results_clean %>%
   filter(ID %in% c("ID1", "ID2")) %>%
   mutate(
     ID_numeric = case_when(
@@ -17,13 +17,13 @@ results_clean <- data %>%
 
 # 2. Verify the ID mapping
 print(
-  results_clean %>%
+  data_clean %>%
     distinct(ID, ID_numeric) %>%
     arrange(ID_numeric)
 )
 
 # 3. Fit one linear regression for each GROUP
-models <- results_clean %>%
+models <- data_clean %>%
   group_by(GROUP) %>%
   group_modify(~ {
     fit <- lm(MovementTime ~ ID_numeric, data = .x)
